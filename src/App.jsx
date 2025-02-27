@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Hero from "./Hero";
 import Menu from "./navbar/Menu"; 
 import Login from "./Login";
+import Contact from "./navbar/Contact";
 
 function App() {
     return (
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<Hero />} /> 
                 <Route path="/menu" element={<Menu />} /> 
                 <Route path='/login' element={<Login/>}/>
+                <Route path="/contact" element={<Contact/>}/>
             </Routes>
         </Router>
     );

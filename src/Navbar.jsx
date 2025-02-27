@@ -10,7 +10,8 @@ const Navbar = () => {
             <ul className="nav-links">
                 <li>
                     <Link to="/" className="nav-item">Home</Link>  
-                    <Link to="/menu" className="nav-item">Menu</Link> 
+                    <Link to="/menu" className="nav-item">Menu</Link>
+                    <Link to="/contact " className="nav-item">Contact</Link> 
                 </li>
             </ul>
             <button className="login-btn">

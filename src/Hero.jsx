@@ -2,7 +2,9 @@ import React from "react";
 import "./Hero.css"; 
 import amazonLogo from "./assets/amazon.jpeg"
 import darazLogo from './assets/daraz.png'
+import { useNavigate } from "react-router-dom";
 const Hero = () => {
+  const navigate=useNavigate()
   return (
     <section className="hero">
       <div className="hero-text">
@@ -11,7 +13,7 @@ const Hero = () => {
           YOUR FEET DESERVE THE BEST AND WE’RE HERE TO HELP YOU WITH OUR SHOES.
         </p>
         <div className="buttons">
-          <button className="shop-btn">Shop Now</button>
+          <button className="shop-btn" onClick={()=>navigate("/menu")} >Shop Now</button>
           <button className="category-btn">Category</button>
         </div>
         <p className="available-text">Also Available On</p>

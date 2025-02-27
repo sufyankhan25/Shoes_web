@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import NikeAir from "../assets/Nike-Air-Max.jpeg";
 import Adidas from "../assets/Adidas-Ultra-Boost.jpeg";
 import Puma from "../assets/Puma-RS-X.jpeg";
-import "../Menu.css"; 
+import "../Menu.css";
 
 function Menu() {
+    const [cart, setCart] = useState([]); // Cart state
+
     const shoes = [
-        { id: 1, name: "Nike Air Max", price: "$150", image: NikeAir },
-        { id: 2, name: "Adidas Ultra Boost", price: "$180", image: Adidas },
-        { id: 3, name: "Puma RS-X", price: "$120", image: Puma },
+        { id: 1, name: "Nike Air Max", price: 150, image: NikeAir },
+        { id: 2, name: "Adidas Ultra Boost", price: 180, image: Adidas },
+        { id: 3, name: "Puma RS-X", price: 120, image: Puma },
     ];
+
+    // Function to add shoe to cart
+    const addToCart = (shoe) => {
+        setCart([...cart, shoe]);
+        alert(`${shoe.name} added to cart!`);
+    };
+
+    // Function to remove a single item from cart
+    const removeFromCart = (index) => {
+        const updatedCart = cart.filter((_, i) => i !== index);
+        setCart(updatedCart);
+    };
+
+    // Function to clear the cart
+    const clearCart = () => {
+        setCart([]);
+    };
+
+    // Calculate total price
+    const totalPrice = cart.reduce((sum, shoe) => sum + shoe.price, 0);
 
     return (
         <div className="menu-container">
@@ -19,10 +41,43 @@ function Menu() {
                     <li key={shoe.id} className="shoe-card">
                         <img src={shoe.image} alt={shoe.name} className="shoe-image" />
                         <h3 className="shoe-name">{shoe.name}</h3>
-                        <p className="shoe-price">{shoe.price}</p>
+                        <p className="shoe-price">${shoe.price}</p>
+                        <button 
+                            className="buy-button" 
+                            onClick={() => addToCart(shoe)}
+                        >
+                            Buy Now
+                        </button>
                     </li>
                 ))}
             </ul>
+
+            {/* Cart Section */}
+            {cart.length > 0 && (
+                <div className="cart-container">
+                    <h2>Your Cart</h2>
+                    <ul className="cart-list">
+                        {cart.map((item, index) => (
+                            <li key={index} className="cart-item">
+                                {item.name} - ${item.price}
+                                <button 
+                                    className="remove-button" 
+                                    onClick={() => removeFromCart(index)}
+                                >
+                                    Remove
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                    <h3>Total Price: ${totalPrice}</h3>
+                    <button className="checkout-button" onClick={() => alert("Proceeding to Checkout")}>
+                        Proceed to Checkout
+                    </button>
+                    <button className="clear-cart-button" onClick={clearCart}>
+                        Clear Cart
+                    </button>
+                </div>
+            )}
         </div>
     );
 }
