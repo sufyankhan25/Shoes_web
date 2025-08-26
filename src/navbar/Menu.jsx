@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import NikeAir from "../assets/Nike-Air-Max.jpeg";
-import Adidas from "../assets/Adidas-Ultra-Boost.jpeg";
-import Puma from "../assets/Puma-RS-X.jpeg";
 import "../Menu.css";
 
 function Menu() {
     const [cart, setCart] = useState([]); // Cart state
 
     const shoes = [
-        { id: 1, name: "Nike Air Max", price: 150, image: NikeAir },
-        { id: 2, name: "Adidas Ultra Boost", price: 180, image: Adidas },
-        { id: 3, name: "Puma RS-X", price: 120, image: Puma },
+        { id: 1, name: "Nike Air Max", price: 150, image: "/Nike-Air-Max.jpeg" },
+        { id: 2, name: "Adidas Ultra Boost", price: 180, image: "/Adidas-Ultra-Boost.jpeg" },
+        { id: 3, name: "Puma RS-X", price: 120, image: "/Puma-RS-X.jpeg" },
     ];
 
     // Function to add shoe to cart

@@ -1,7 +1,6 @@
 import React from "react";
 import "./Hero.css"; 
-import amazonLogo from "./assets/amazon.jpeg"
-import darazLogo from './assets/daraz.png'
+
 import { useNavigate } from "react-router-dom";
 const Hero = () => {
   const navigate=useNavigate()
@@ -19,15 +18,15 @@ const Hero = () => {
         <p className="available-text">Also Available On</p>
         <div className="brands">
         <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer">
-                    <img src={amazonLogo} alt="Amazon" className="marketplace-logo" />
+                    <img src="/amazon.jpeg" alt="Amazon" className="marketplace-logo" />
                 </a>
                 <a href="https://www.daraz.pk" target="_blank" rel="noopener noreferrer">
-                    <img src={darazLogo} alt="Daraz" className="marketplace-logo" />
+                    <img src="/daraz.png" alt="Daraz" className="marketplace-logo" />
                 </a>
         </div>
       </div>
       <div className="hero-image">
-        <img src="src/assets/shoes.jpeg" alt="Nike Shoe"  />
+        <img src="/shoes.jpeg" alt="Nike Shoe"  />
       </div>
     </section>
   );
